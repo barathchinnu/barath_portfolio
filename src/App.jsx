@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Loader from "./components/Loader";
-
+import ShootingStars from "./components/ShootingStars";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
@@ -10,6 +10,7 @@ import AchievementTimeline from "./components/AchievementTimeline";
 import Contact from "./components/Contact";
 import CustomCursor from "./components/CustomCursor";
 import PortfolioAI from "./components/PortfolioAI";
+import ParticlesBackground from "./components/ParticlesBackground";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,10 @@ export default function App() {
 
   return (
     <div className="bg-vice-dark min-h-screen text-white">
+ 
             <CustomCursor />
+            <ParticlesBackground />
+              <ShootingStars />
       <Navbar />
       <Hero />
       <Skills />

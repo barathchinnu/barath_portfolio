@@ -55,3 +55,69 @@ body,
 * {
   cursor: none;
 }
+
+
+
+.shooting-star {
+  width: 180px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,1),
+    rgba(34,211,238,0.8),
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px white,
+    0 0 20px #22d3ee,
+    0 0 40px #22d3ee;
+
+  transform: rotate(-25deg);
+
+  animation: shootingStar 2.5s linear forwards;
+}
+
+@keyframes shootingStar {
+  from {
+    transform: translateX(0) translateY(0) rotate(-25deg);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(1800px)
+      translateY(600px)
+      rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+
+
+.particle {
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.8;
+  animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-80px);
+  }
+
+  100% {
+    transform: translateY(-160px);
+    opacity: 0;
+  }
+}
