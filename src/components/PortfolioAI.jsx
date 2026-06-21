@@ -39,7 +39,7 @@ export default function PortfolioAI() {
     }
 
     if (q.includes("who are you") || q.includes("about")) {
-      return "👨‍💻 I'm Barath Chinnu, a Full Stack Developer, AI Developer and SIH Pre-Finalist passionate about building impactful software solutions.";
+      return "👨‍💻 I'm Barath, a Full Stack Developer, AI Developer and SIH Pre-Finalist passionate about building impactful software solutions.";
     }
 
     return "🤖 Sorry, I don't know that yet. Try asking about education, skills, projects, achievements, contact, or resume.";
