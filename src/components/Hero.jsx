@@ -4,7 +4,7 @@ import {
   FaGithub,
   FaDiscord,
 } from "react-icons/fa";
-;
+
 import {
   SiGmail,
   SiLeetcode,
