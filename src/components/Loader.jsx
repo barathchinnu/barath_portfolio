@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 export default function Loader({ onFinish }) {
   const text = "BARATH PORTFOLIO";
 
@@ -8,12 +7,19 @@ export default function Loader({ onFinish }) {
   const [loadingComplete, setLoadingComplete] = useState(false);
 
   useEffect(() => {
+    // Using a stable audio instance so it can keep playing even if StrictMode
+    // mounts/unmounts the component while the loader is finishing.
     const sound = new Audio("/sounds/gta-intro.mp3");
     sound.volume = 1;
     sound.preload = "auto";
     sound.muted = false;
 
+    let hasPlayedOnce = false;
+
     const playAudio = () => {
+      if (hasPlayedOnce) return;
+      hasPlayedOnce = true;
+
       // reset in case previous attempt was blocked
       try {
         sound.currentTime = 0;
@@ -22,23 +28,19 @@ export default function Loader({ onFinish }) {
       sound
         .play()
         .then(() => console.log("Audio playing"))
-        .catch((e) => console.log("Audio play blocked:", e));
+        .catch((e) => {
+          // If play is still blocked, allow a later user gesture to retry.
+          console.log("Audio play blocked:", e);
+          hasPlayedOnce = false;
+        });
     };
 
     // Try immediately; if blocked, wait for user gesture.
     playAudio();
 
-    window.addEventListener(
-      "pointerdown",
-      () => playAudio(),
-      { once: true }
-    );
-
-    window.addEventListener(
-      "click",
-      () => playAudio(),
-      { once: true }
-    );
+    const onUserGesture = () => playAudio();
+    window.addEventListener("pointerdown", onUserGesture, { once: true });
+    window.addEventListener("click", onUserGesture, { once: true });
 
     let index = 0;
 
@@ -50,9 +52,13 @@ export default function Loader({ onFinish }) {
         clearInterval(typing);
 
         setTimeout(() => {
+          // Make one more attempt right before the loader finishes.
+          playAudio();
           setLoadingComplete(true);
 
           setTimeout(() => {
+            // And again just before exiting the loader.
+            playAudio();
             if (onFinish) onFinish();
           }, 1000);
         }, 1500);
@@ -61,8 +67,8 @@ export default function Loader({ onFinish }) {
 
     return () => {
       clearInterval(typing);
-      sound.pause();
-      sound.currentTime = 0;
+      // IMPORTANT: do not pause/reset here; Loader unmounts right after onFinish
+      // and pausing can make the audio appear only after the loader disappears.
     };
   }, [onFinish]);
 
