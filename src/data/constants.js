@@ -28,6 +28,19 @@ export const projects = [
     demo: "https://barathcyberfiction.vercel.app/",
     github: "https://github.com/barathchinnu/cyberfiction.git",
   },
+
+  
+  {
+    title: "3D CAMPUSVIEWER",
+    subtitle: "Interactive campus environment",
+    image: "/images/campus.png",
+    color: "from-violet-500 via-fuchsia-500 to-pink-600",
+    tags: ["REACT","THREE .JS","script", "Vite", "HTML5", "CSS3","React Three Fiber (@react-three/fiber)","Blender (for creating/editing 3D models)","React Three Drei (@react-three/drei)"],
+    demo: "http://campusscape.vercel.app/",
+    github: "https://github.com/barathchinnu/campusscape",
+  },
+
+
 ];
 
 
