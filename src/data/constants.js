@@ -5,7 +5,7 @@ export const projects = [
     image: "/images/qless.png",
     color: "from-cyan-500 via-blue-500 to-violet-700",
     tags: ["React", "Vite", "Node.js", "MongoDB", "UI/UX Design", "Figma"],
-    demo: "https://taluk-office-queue-management.onrender.com/",
+    demo: "https://taluk-office-queue-management.vercel.app/",
     github: "https://github.com/barathchinnu/taluk_office_queue_management.git",
   },
 
