@@ -1,5 +1,15 @@
 export const projects = [
   {
+    title: "QLess – Smart Queue Management",
+    subtitle: "TALUK OFFICE DIGITAL SERVICES",
+    image: "/images/qless.png",
+    color: "from-cyan-500 via-blue-500 to-violet-700",
+    tags: ["React", "Vite", "Node.js", "MongoDB", "UI/UX Design", "Figma"],
+    demo: "https://taluk-office-queue-management.onrender.com/",
+    github: "https://github.com/barathchinnu/taluk_office_queue_management.git",
+  },
+
+  {
     title: "CampusSwap",
     subtitle: "COLLEGE MARKETPLACE",
     image: "/images/campusswap.png",
@@ -119,6 +129,32 @@ export const skills = [
       {
         name: "MongoDB",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+      },
+    ],
+  },
+
+  {
+    category: "UI/UX Design",
+    items: [
+      {
+        name: "Figma",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      },
+      {
+        name: "Wireframing",
+        icon: "https://cdn-icons-png.flaticon.com/512/1055/1055644.png",
+      },
+      {
+        name: "Prototyping",
+        icon: "https://cdn-icons-png.flaticon.com/512/1006/1006363.png",
+      },
+      {
+        name: "User Flows",
+        icon: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+      },
+      {
+        name: "User-Centered Design",
+        icon: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
       },
     ],
   },
